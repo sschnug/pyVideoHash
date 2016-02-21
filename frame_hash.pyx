@@ -1,3 +1,10 @@
+""" Based on "From Image Hashing to Video Hashing" / Li Weng and Bart Preneel
+    + some earlier paper by Weng
+
+    Cumulant-calculation was taken from "http://web.mit.edu/jhawk/mnt/spo/python-lib/src/SciPy_complete-0.3.2/Lib/stats/morestats.py"
+        which was written by Travis Oliphant, 2002
+"""
+
 import skimage
 from skimage.morphology import disk
 from skimage.transform import resize
@@ -8,9 +15,6 @@ from deltasigma import ds_quantize
 
 
 class FrameHash(object):
-    """ Based on "From Image Hashing to Video Hashing" / Li Weng and Bart Preneel
-            + some earlier paper by Weng
-    """
     def __init__(self, img):    # image = numpy array + RGB!!!
         self.img = img
         self.preprocess_resize_constants = (512, 384)
